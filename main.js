@@ -1,6 +1,3 @@
-for (let i of [1, 2, 3]) {
-    console.log(i);
-}
 
 function createElement(tagName, attributes, ...children) {
     let e = document.createElement(tagName);
@@ -16,9 +13,16 @@ function createElement(tagName, attributes, ...children) {
     return e;
 }
 
-window.a = <div id="a" class="c" >
-    <div>abc</div>
-    <div></div>
-    <div></div>
-</div>
+// window.a = <div id="a" class="c" >
+//     <div>abc</div>
+//     <div></div>
+//     <div></div>
+// </div>
 
+document.body.appendChild(
+    <MyComponent id="a" class="c" >
+        <div>abc</div>
+        <div></div>
+        <div></div>
+    </MyComponent>
+)
