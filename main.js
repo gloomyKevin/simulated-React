@@ -1,16 +1,11 @@
 import { createElement, Component, render } from './simulated_react.js'
 
 class MyComponent extends Component {
-    constructor(type) {
-
-    }
-
-    setAttribute(name, value) {
-
-    }
-
-    appendChild() {
-
+    render() {
+        return <div>
+            <h1>my component</h1>
+            {this.children}
+        </div>
     }
 }
 
