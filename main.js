@@ -1,7 +1,17 @@
-import { createElement } from './simulated_react.js'
+import { createElement, Component, render } from './simulated_react.js'
 
-class MyComponent {
+class MyComponent extends Component {
+    constructor(type) {
 
+    }
+
+    setAttribute(name, value) {
+
+    }
+
+    appendChild() {
+
+    }
 }
 
 
@@ -12,10 +22,9 @@ class MyComponent {
 //     <div></div>
 // </div>
 
-document.body.appendChild(
+render(
     <MyComponent id="a" class="c" >
         <div>abc</div>
         <div></div>
         <div></div>
-    </MyComponent>
-)
+    </MyComponent>, document.body)

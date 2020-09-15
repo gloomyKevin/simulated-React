@@ -1,3 +1,45 @@
+class ElementWrapper {
+    constructor(type) {
+
+    }
+
+    setAttribute(name, value) {
+
+    }
+
+    appendChild() {
+
+    }
+}
+
+class TextWrapper {
+    constructor(content) {
+
+    }
+
+    setAttribute(name, value) {
+
+    }
+
+    appendChild() {
+
+    }
+}
+
+class Component {
+    constructor() {
+
+    }
+
+    setAttribute(name, value) {
+
+    }
+
+    appendChild() {
+
+    }
+}
+
 export function createElement(type, attributes, ...children) {
     if (typeof type === 'string') {
         e = document.createElement(type);
@@ -15,4 +57,8 @@ export function createElement(type, attributes, ...children) {
         e.appendChild(child);
     }
     return e;
+}
+
+export function render(component, parentElement) {
+
 }
