@@ -16,6 +16,10 @@ export class Component {
         this.children.push(component);
     }
 
+    get vdom() {
+        return this.render().vdom;
+    }
+
     [RENDER_TO_DOM](range) {
         this._range = range;
         this.render()[RENDER_TO_DOM](range);
@@ -70,34 +74,33 @@ class ElementWrapper extends Component {
         this.root = document.createElement(type);
     }
 
-    setAttribute(name, value) {
-        if (name.match(/^on([\s\S]+)$/)) {
-            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
-        } else {
-            if (name === "className") {
-                this.root.setAttribute("class", value);
-            } else {
-                this.root.setAttribute(name, value);
-            }
-            // this.root.setAttribute(name, value);
-        }
-        // this.root.setAttribute(name, value);
-    }
+    // setAttribute(name, value) {
+    //     if (name.match(/^on([\s\S]+)$/)) {
+    //         this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
+    //     } else {
+    //         if (name === "className") {
+    //             this.root.setAttribute("class", value);
+    //         } else {
+    //             this.root.setAttribute(name, value);
+    //         }
+    //         // this.root.setAttribute(name, value);
+    //     }
+    //     // this.root.setAttribute(name, value);
+    // }
 
     get vdom() {
         return {
             type: this.type,
-            props = this.props,
-            children = this.children.map((child => child.vdom))
+            props: this.props,
+            children: this.children.map((child => child.vdom))
         }
     }
-    appendChild(component) {
-        let range = document.createRange();
-        range.setStart(this.root, this.root.childNodes.length);
-        range.setEnd(this.root, this.root.childNodes.length);
-        component[RENDER_TO_DOM](range);
-
-    }
+    // appendChild(component) {
+    //     let range = document.createRange();
+    //     range.setStart(this.root, this.root.childNodes.length);
+    //     range.setEnd(this.root, this.root.childNodes.length);
+    //     component[RENDER_TO_DOM](range);
+    // }
 
     [RENDER_TO_DOM](range) {
         range.deleteContents();
