@@ -67,8 +67,15 @@ export class Component {
 
     // 重新绘制的算法
     rerender() {
-        this._range.deleteContents();
-        this[RENDER_TO_DOM](this._range);
+        let oldRange = this._range;
+        let range = document.createRange();
+        range.setStart(oldRange.startContainer, oldRange.startOffset);
+        range.setEnd(oldRange.startContainer, oldRange.startOffset);
+        this[RENDER_TO_DOM](range);
+
+        oldRange.setStart(range.endContainer, range.endOffset);
+        oldRange.deleteContents();
+        // this[RENDER_TO_DOM](this._range);
     }
 
     setState(newState) {
