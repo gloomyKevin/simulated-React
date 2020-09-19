@@ -6,7 +6,12 @@ class ElementWrapper {
     }
 
     setAttribute(name, value) {
-        this.rootSetAttribute(name, value);
+        if (name.match(/^on([\s\S]+)$/)) {
+            this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
+        } else {
+            this.root.setAttribute(name, value);
+        }
+        // this.root.setAttribute(name, value);
     }
 
     appendChild(component) {
@@ -57,7 +62,7 @@ export class Component {
 
     // 重新绘制的算法
     rerender() {
-        range.deleteContents();
+        this._range.deleteContents();
         this[RENDER_TO_DOM](this._range);
     }
 
