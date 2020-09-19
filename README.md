@@ -1,4 +1,4 @@
-- [x] JSX
+- [x] :sunny:JSX
 - [x] rangeAPI
 - [x] add setState
 - [x] add demo
@@ -20,10 +20,10 @@
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
 </p>
 
-<h2 align="center">ZARA - 下一代前端框架（主标题）</h2>
+<h2 align="center">simulated - React  下一代前端框架（主标题）</h2>
 <p align="center"><b>基于 Web Components 并支持 IE8（简单介绍）</b></p>
 
-# 目录
+# 开发笔记
 
 - [生态](#生态)
 - [必须收藏的资源](#必须收藏的资源)
@@ -49,7 +49,7 @@
 - 小巧的尺寸
 - 支持 `TypeScript`
 
-## 必须收藏的资源
+## 参考资料
 
 - [你必须收藏 ES6 Spread Operator 技巧](https://github.com/Tencent/omi/blob/master/tutorial/spread-operator.cn.md)
 - [使用 requestIdleCallback](https://div.io/topic/1370)
@@ -69,8 +69,8 @@ $ npm run build                  # release
 目录说明:
 
 ```
-├─ config
-├─ public
+├─ .vscode
+├─ disk
 ├─ scripts
 ├─ src
 │  ├─ assets
@@ -105,7 +105,7 @@ export default {
     <tbody>
         <tr>
             <td>
-                <a target="_blank" href="https://github.com/yokiyokiyoki"><img width="60px" src="https://avatars1.githubusercontent.com/u/20388810?s=460&v=4"></a>
+                <a target="_blank" href="https://github.com/gloomyKevin"><img width="60px" src="https://avatars1.githubusercontent.com/u/47132374?s=460&u=a4cddb370a56c1c4253607dcf5ba96b524c6a989&v=4"></a>
             </td>
         </tr>
     </tbody>
@@ -113,7 +113,7 @@ export default {
 
 ## 维护者
 
-- [yoki](https://github.com/yokiyokiyoki)
+- [gloomyKevin](https://github.com/gloomyKevin)
 
 ## 感谢
 
