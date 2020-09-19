@@ -65,7 +65,19 @@ export class Component {
             // 如果新旧节点一样, 将oldNode的range强行设置为newNode的range
             newNode._range = oldNode._range;
 
+            // 处理children
+            let newChildren = newNode.vchildren;
+            let oldChildren = oldChildren.vchildren;
 
+            for (let i = 0; i < newChildren.length; i++) {
+                let newChild = newChildren[i];
+                let oldChild = oldChildren[i];
+                if (i < oldChildren.length) {
+                    update(oldChild, newChild);
+                } else {
+                    // TODO
+                }
+            }
         }
         let vdom = this.vdom;
         update(this._vdom, this.vdom);
