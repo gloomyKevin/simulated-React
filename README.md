@@ -34,15 +34,6 @@
 - [感谢](#感谢)
 - [License](#license)
 
-## 生态
-
-[→ 生态学习路线图](https://github.com/Tencent/omi/tree/master/assets/rm.md)
-
-| **项目**                                                                                                                                  | **描述**                       |
-| ----------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------ |
-| [ZARA-docs](https://github.com/Tencent/omi/blob/master/docs/main-concepts.cn.md)                                                           | 官方文档                       |
-| [ZARA![](https://raw.githubusercontent.com/dntzhang/cax/master/asset/hot.png) ](https://github.com/Tencent/omi/tree/master/packages/omip) | 直接使用 ZARA 开发小程序！！！ |
-
 ### 特性
 
 - 小巧的尺寸
@@ -58,11 +49,11 @@
 ### 安装
 
 ```bash
-$ npm i zara-cli -g               # install cli
-$ omi init my-app     # init project, you can also exec 'omi init' in an empty folder
-$ cd my-app           # please ignore this command if you executed 'omi init' in an empty folder
-$ npm start                      # develop
-$ npm run build                  # release
+$ npm i zara-cli -g     # install cli
+$ omi init my-app       # init project, you can also exec 'omi init' in an empty folder
+$ cd simulated-React    # please ignore this command if you executed 'omi init' in an empty folder
+$ npm start             # develop
+$ npm run build         # release
 ```
 
 目录说明:
@@ -77,23 +68,6 @@ $ npm run build                  # release
 │  ├─ store       //存放所有页面的 store
 │  ├─ admin.js    //入口文件，会 build 成  admin.html
 │  └─ index.js    //入口文件，会 build 成  index.html
-```
-
-### 用法
-
-```vue
-<template>
-  <Slider v-model="value" range />
-</template>
-<script>
-export default {
-  data() {
-    return {
-      value: [20, 50]
-    };
-  }
-};
-</script>
 ```
 
 [→ simple demo](https://tencent.github.io/omi/packages/omi/examples/counter/)
@@ -114,9 +88,6 @@ export default {
 
 - [gloomyKevin](https://github.com/gloomyKevin)
 
-## 感谢
-
-- [README-templete](https://github.com/yokiyokiyoki/readme-template)
 
 ## License
 
