@@ -26,21 +26,63 @@ export class Component {
 
     [RENDER_TO_DOM](range) {
         this._range = range;
-        this.render()[RENDER_TO_DOM](range);
+        this._vdom = this.vdom;
+        this._vdom[RENDER_TO_DOM](range);
     }
 
+    update() {
+        let isSameNode = (oldNode, newNode) => {
+            // 类型不同,并且节点不同
+            if (oldNode.type !== newNode.type) {
+                return false
+            }
+            for (let name in newNode.props) {
+                // 如果属性值不一致,则认为不同
+                if (newNode.props[name] !== oldName.props[name]) {
+                    return false;
+                }
+            }
+            // 旧属性比新属性多,即属性的数量不同
+            if (Object.keys(oldNode.props).length > Object.keys(newNode.props).length) {
+                return false;
+            }
+            // 文本节点的内容不同
+            if (newNode.type === "#text") {
+                if (newNode.content !== oldNode.content) {
+                    return false;
+                }
+            }
+            return true;
+        }
+        let update = (oldNode, newNode) => {
+            // type, props, children
+            // #text, content
+            if (!isSameNode(oldNode, newNode)) {
+                // 新旧节点不同,此时为全新渲染
+                newNode[RENDER_TO_DOM](oldNode._range);
+                return;
+            }
+            // 如果新旧节点一样, 将oldNode的range强行设置为newNode的range
+            newNode._range = oldNode._range;
+
+
+        }
+        let vdom = this.vdom;
+        update(this._vdom, this.vdom);
+        this._vdom = vdom;
+    }
     // 重新绘制的算法
-    rerender() {
-        let oldRange = this._range;
-        let range = document.createRange();
-        range.setStart(oldRange.startContainer, oldRange.startOffset);
-        range.setEnd(oldRange.startContainer, oldRange.startOffset);
-        this[RENDER_TO_DOM](range);
+    // rerender() {
+    //     let oldRange = this._range;
+    //     let range = document.createRange();
+    //     range.setStart(oldRange.startContainer, oldRange.startOffset);
+    //     range.setEnd(oldRange.startContainer, oldRange.startOffset);
+    //     this[RENDER_TO_DOM](range);
 
-        oldRange.setStart(range.endContainer, range.endOffset);
-        oldRange.deleteContents();
-        // this[RENDER_TO_DOM](this._range);
-    }
+    //     oldRange.setStart(range.endContainer, range.endOffset);
+    //     oldRange.deleteContents();
+    //     // this[RENDER_TO_DOM](this._range);
+    // }
 
     setState(newState) {
         if (this.state === null || typeof this.state !== "object") {
@@ -93,6 +135,7 @@ class ElementWrapper extends Component {
     // }
 
     get vdom() {
+        this.vchildren = this.children.map(child => child.vdom);
         return this;
         // return {
         //     type: this.type,
@@ -126,7 +169,11 @@ class ElementWrapper extends Component {
             // this.root.setAttribute(name, value);
         }
 
-        for (let child of this.children) {
+        if (!this.vchildren) {
+            this.vchildren = this.children.map(child => child.vdom);
+        }
+
+        for (let child of this.vchildren) {
             let childRange = document.createRange();
             childRange.setStart(root, root.childNodes.length);
             childRange.setEnd(root, root.childNodes.length);
