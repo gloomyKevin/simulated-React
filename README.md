@@ -4,9 +4,9 @@
 - [x] add demo
 - [x] fix range bug
 - [x] conplete setState
-- [ ] virtual DOM
-
-
+- [x] virtual DOM
+- [x] entity DOM
+- [ ] vdom comparison
 
 
 
