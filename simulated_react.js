@@ -39,6 +39,7 @@ export class Component {
         this.props = Object.create(null);
         this.children = [];
         this._root = null;
+        this._range = null;
     }
 
     setAttribute(name, value) {
@@ -50,7 +51,14 @@ export class Component {
     }
 
     [RENDER_TO_DOM](range) {
+        this._range = range;
         this.render()[RENDER_TO_DOM](range);
+    }
+
+    // 重新绘制的算法
+    rerender() {
+        range.deleteContents();
+        this[RENDER_TO_DOM](this._range);
     }
 
     // get root() {
