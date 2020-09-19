@@ -1,4 +1,4 @@
-const RENDER_TO_DOM = Symbol("reander to dom")
+const RENDER_TO_DOM = Symbol("render to dom")
 
 class ElementWrapper {
     constructor(type) {
@@ -9,7 +9,12 @@ class ElementWrapper {
         if (name.match(/^on([\s\S]+)$/)) {
             this.root.addEventListener(RegExp.$1.replace(/^[\s\S]/, c => c.toLowerCase()), value);
         } else {
-            this.root.setAttribute(name, value);
+            if (name === "className") {
+                this.root.setAttribute("class", value);
+            } else {
+                this.root.setAttribute(name, value);
+            }
+            // this.root.setAttribute(name, value);
         }
         // this.root.setAttribute(name, value);
     }
@@ -19,7 +24,7 @@ class ElementWrapper {
         range.setStart(this.root, this.root.childNodes.length);
         range.setEnd(this.root, this.root.childNodes.length);
         component[RENDER_TO_DOM](range);
-        // this.root.appendChild(component.root);
+
     }
 
     [RENDER_TO_DOM](range) {
@@ -111,6 +116,9 @@ export function createElement(type, attributes, ...children) {
         for (let child of children) {
             if (typeof child === "string") {
                 child = new TextWrapper(child);
+            }
+            if (child === null) {
+                continue;
             }
             if ((typeof child === 'object') && (child instanceof Array)) {
                 insertChildren(child);
