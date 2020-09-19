@@ -1,27 +1,26 @@
-- [x] :sunny:JSX
-- [x] rangeAPI
-- [x] add setState
-- [x] add demo
-- [x] fix range bug
-- [x] conplete setState
-- [x] virtual DOM
-- [x] entity DOM
-- [ ] vdom comparison
+- [x] :trophy:JSX
+- [x] :dart:rangeAPI
+- [x] :dart:add setState
+- [x] :dart:add demo
+- [x] :dart:fix range bug
+- [x] :trophy:complete setState
+- [x] :dart:virtual DOM
+- [x] :dart:entity DOM
+- [ ] :trophy:dom comparison
 
 [English](./README.EN.md) | 简体中文
 
-<p align="center"><img width="100" src="https://vuejs.org/images/logo.png"></p>
+<p align="center"><img width="200" src="https://ae01.alicdn.com/kf/Ue4d9024a61f64bf486ac1eebe45596daU.jpg"></p>
 
 <p align="center">
   <a href="https://circleci.com/gh/vuejs/vue/tree/dev"><img src="https://img.shields.io/circleci/project/github/vuejs/vue/dev.svg" alt="Build Status"></a>
   <a href="https://codecov.io/github/vuejs/vue?branch=dev"><img src="https://img.shields.io/codecov/c/github/vuejs/vue/dev.svg" alt="Coverage Status"></a>
-  <a href="https://npmcharts.com/compare/vue?minimal=true"><img src="https://img.shields.io/npm/dm/vue.svg" alt="Downloads"></a>
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/v/vue.svg" alt="Version"></a>
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
 </p>
 
-<h2 align="center">simulated - React  下一代前端框架（主标题）</h2>
-<p align="center"><b>基于 Web Components 并支持 IE8（简单介绍）</b></p>
+<h2 align="center"> simulated - React </h2>
+<p align="center"><b> 简易React模拟实现 </b></p>
 
 # 开发笔记
 
@@ -51,8 +50,8 @@
 
 ## 参考资料
 
-- [你必须收藏 ES6 Spread Operator 技巧](https://github.com/Tencent/omi/blob/master/tutorial/spread-operator.cn.md)
-- [使用 requestIdleCallback](https://div.io/topic/1370)
+- [21天造React](https://zhuanlan.zhihu.com/p/29869797)
+- [React接口文档](https://reactjs.org/docs/implementation-notes.html)
 
 ## 快速入门
 
