@@ -19,8 +19,6 @@
   <a href="https://www.npmjs.com/package/vue"><img src="https://img.shields.io/npm/l/vue.svg" alt="License"></a>
 </p>
 
-<h2 align="center"> simulated - React </h2>
-<p align="center"><b> 简易React模拟实现 </b></p>
 
 # 开发笔记
 
@@ -36,8 +34,8 @@
 
 ### 特性
 
-- 小巧的尺寸
-- 支持 `TypeScript`
+- 构建简易版 虚拟DOM树 ,完成虚拟DOM到实体DOM的映射, 模拟了简单的 diff算法
+- 已经支持一些小型demo的渲染和运行
 
 ## 参考资料
 
@@ -49,28 +47,23 @@
 ### 安装
 
 ```bash
-$ npm i zara-cli -g     # install cli
-$ omi init my-app       # init project, you can also exec 'omi init' in an empty folder
 $ cd simulated-React    # please ignore this command if you executed 'omi init' in an empty folder
-$ npm start             # develop
-$ npm run build         # release
+$ npm webpack           # develop
 ```
 
 目录说明:
 
 ```
-├─ .vscode
-├─ disk
-├─ scripts
-├─ src
-│  ├─ assets
-│  ├─ elements    //存放所有 custom elements
-│  ├─ store       //存放所有页面的 store
-│  ├─ admin.js    //入口文件，会 build 成  admin.html
-│  └─ index.js    //入口文件，会 build 成  index.html
+├─ main.js
+├─ package-json
+├─ simulated_react.js   // 主要的逻辑代码
+├─ dist
+│  ├─ main.html         // html和CSS文件入口
+│  ├─ main.js           // 存放webpack打包代码的位置
+| ├─ launch.json
 ```
 
-[→ simple demo](https://tencent.github.io/omi/packages/omi/examples/counter/)
+[→ simple demo]()
 
 ## 贡献者们
 
@@ -91,6 +84,6 @@ $ npm run build         # release
 
 ## License
 
-- [MIT](https://opensource.org/licenses/MIT)
+- [MIT]()
 
 
